@@ -1,2 +1,3 @@
-# demo-nodejs
-Demo NodeJS project
+# CircleCI Simple AWS Demo
+
+
