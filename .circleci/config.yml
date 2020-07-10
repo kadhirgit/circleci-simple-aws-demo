@@ -7,18 +7,12 @@ jobs:
     executor: aws-cli/default
     steps:
       - checkout
-      - run:
-          name: Diags
-          command: |
-            pwd
-            ls -la . ..
       - aws-cli/setup
-      - run:
-          name: Verify AWS CLI
-          command: aws sts get-caller-identity
       - run:
           name: Ensure backend infrastructure exist
           command: |
+            pwd
+            ls -l
             aws cloudformation deploy \
               --template-file template.yml \
               --stack-name my-stack
