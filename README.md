@@ -1,2 +1,2 @@
-# circleci-simple-aws-demo
-Simple demo using circleci
+# demo-nodejs
+Demo NodeJS project

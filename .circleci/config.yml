@@ -1,0 +1,35 @@
+version: 2.1
+orbs:
+  aws-cli: circleci/aws-cli@1.1.0
+
+jobs:
+  create_infrastructure:
+    executor: aws-cli/default
+    steps:
+      - checkout
+      - run:
+          name: Diags
+          command: |
+            pwd
+            ls -la . ..
+      - aws-cli/setup
+      - run:
+          name: Verify AWS CLI
+          command: aws sts get-caller-identity
+      - run:
+          name: Ensure backend infrastructure exist
+          command: |
+            aws cloudformation deploy \
+              --template-file template.yml \
+              --stack-name my-stack
+
+workflows:
+  version: 2
+
+  do-cool-stuff:
+    jobs:
+      - create_infrastructure:
+          filters:
+            branches:
+              only: master
+
