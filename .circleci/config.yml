@@ -12,7 +12,7 @@ jobs:
           name: Ensure backend infrastructure exist
           command: |
             pwd
-            ls -l
+            ls -la
             aws cloudformation deploy \
               --template-file template.yml \
               --stack-name my-stack
