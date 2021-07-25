@@ -15,7 +15,7 @@ jobs:
             ls -la
             aws cloudformation deploy \
               --template-file template.yml \
-              --stack-name my-stack --region=ap-south-1
+              --stack-name my-stack
 
 workflows:
   version: 2
