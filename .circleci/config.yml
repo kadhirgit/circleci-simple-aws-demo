@@ -13,7 +13,7 @@ jobs:
           command: |
             pwd
             ls -la 
-            aws sts get-session-token
+            aws sts get-session-token --region ap-south-1
             aws cloudformation deploy \
               --template-file template.yml \
               --stack-name my-stack --region ap-south-1
